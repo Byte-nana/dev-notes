@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Size</title>
+    <style>
+      .tag {
+        display: inline-block;
+        background-color: thistle;
+        padding: 16px;
+        margin: 16px;
+        font-size: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tag">Window Size</div>
+    <script>
+      const tag = document.querySelector('.tag');
+
+      function updateTag() {
+        tag.innerHTML = `window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+        window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+        window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+        documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+        `;
+      }
+
+      window.addEventListener('resize', () => {
+        updateTag();
+      });
+
+      updateTag();
+
+      // const tag = document.querySelector('.tag');
+      /* 1. addEventListener 이용해서 코드 작성
+      window.addEventListener('resize', () => {
+        2. tag안에 새로운 html요소 넣어주기(.innterHTML)
+        tag.innerHTML = `
+        window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+        window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+        window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+        documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+        `;
+      });
+      3. addEventListen로 작성하면, 처음 화면을 열었을 때 정보가 나오지 않는다.
+      4. 아래와 같이 작성하면, 처음 화면을 열었을 때 정보가 표기된다. 하지만 똑같은 코드가 반복되기에 좋지않다. -> 함수로 작성하기
+      tag.innerHTML = `
+        window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+        window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+        window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+        documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+        `;
+      */
+    </script>
+  </body>
+</html>
