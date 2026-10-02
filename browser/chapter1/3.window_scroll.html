@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrolling</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      div {
+        width: 150px;
+        height: 150px;
+        background-color: blanchedalmond;
+        margin-bottom: 4px;
+        border-radius: 4px;
+      }
+      .special {
+        background-color: lightsalmon;
+      }
+      .buttons {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <aside class="buttons">
+      <button class="scrollBy">Scroll by 100px(y)</button>
+      <button class="scrollTo">Scroll to 100px(y)</button>
+      <button class="scrollInto">Scroll into special</button>
+    </aside>
+    <script>
+      const special = document.querySelector('.special');
+      const buttons = document.querySelector('.buttons');
+      // const scrollBy = document.querySelector('.scrollBy');
+      // const scrollTo = document.querySelector('.scrollTo');
+      // const scrollInto = document.querySelector('.scrollInto');
+
+      // scrollBy.addEventListener('click', () => {
+      //   window.scrollBy(0, 100);
+      // });
+
+      // scrollTo.addEventListener('click', () => {
+      //   window.scrollTo(0, 100);
+      // });
+
+      // scrollInto.addEventListener('click', () => {
+      //   special.scrollIntoView();
+      // });
+
+      buttons.addEventListener('click', (e) => {
+        switch (e.target.className) {
+          case 'scrollBy':
+            window.scrollBy(0, 100);
+            break;
+          case 'scrollTo':
+            window.scrollTo(0, 100);
+            break;
+          case 'scrollInto':
+            special.scrollIntoView();
+            break;
+          default:
+            throw new Error(`Unknow button: ${e.target.className}`);
+        }
+      });
+    </script>
+  </body>
+</html>
