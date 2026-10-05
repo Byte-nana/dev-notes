@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      section {
+        width: 50%;
+        margin: 50px auto;
+        background-color: brown;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      img {
+        z-index: 100;
+        will-change: opacity;
+      }
+      h1,
+      h3,
+      span {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="img/avatar.png" alt="avatar" />
+      <h1 id="brand">Dream Coding</h1>
+      <!-- hello comment -->
+      <h3>Don't forget to code your dream</h3>
+    </section>
+    <span>Hello World!</span>
+    <script>
+      /* getElementBy vs querySelector
+      1. getElementBy
+      - 클래스, 아이디 등등 선택자에 따라서 API가 달라진다.
+      - 이제는 잘 사용하지 않는다.
+      2. querySelector
+      - 하나의 API로 CSS선택자 기능을 이용해서 요소를 선택할 수 있다.
+      - 요소 중 제일 처음 발견되는 요소를 가져온다.
+      - 모든 요소를 가지고 오고 싶은 경우에는 querySelectorAll을 사용한다.
+      
+      const image1 = document.getElementById('brand');
+      const image = document.querySelector('img');
+      const image2 = document.querySelector('img[src="img/avatar.png"]');
+      const image3 = document.querySelectorAll('img');
+      console.log(image);
+      */
+      // DOM 요소 받아오기! querySelector
+      // h2태그 만들기
+      const section = document.querySelector('section');
+      const h2 = document.createElement('h2');
+      // 속성 추가
+      h2.setAttribute('class', 'title'); // <h2 class="title"></h2>
+      // 텍스트 넣기
+      h2.textContent = 'This is a title'; // <h2 class="title">This is a title</h2>
+
+      // section에 h2태그 추가하기
+      // 1. appendChild() : 이전 버전 (브라우저 호환성 생각하면 이용?)
+      // append() : 최신 버전
+      // 컨테이너의 맨 마지막에 추가가 된다.
+      // section.appendChild(h2);
+
+      // 2. insertBefore(넣고자 하는 요소, 원하는 위치 다음에 오는 요소)
+      const h3 = document.querySelector('h3');
+      section.insertBefore(h2, h3);
+
+      // 요소 삭제하기
+      // removeChild()
+      section.removeChild(h2);
+
+      /* innerHTML vs element
+      - innerHTML은 리터럴 사용해서 요소를 만들고 설정하는 등의 코드의 사용을 줄일 수 있다.
+      - 한번 작성하고 수정이 되지 않는다면 innerHTML을 사용해서 작성해주는 것이 좋다. (계속 수정해야 하면 돔트리를 계속 다시 작성해야 해서 좋지 않다. )
+      - 수정을 해야 하고 요소들을 더 다뤄야 한다면 element 사용하기
+      section.innerHTML = `
+      <img src="img/avatar.png" alt="avatar" />
+      <h1 id="brand">Dream Coding</h1>
+      `;
+      */
+    </script>
+  </body>
+</html>
