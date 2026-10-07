@@ -1,0 +1,123 @@
+:root {
+  --colour-primary: #1f1f1f;
+  --colour-accent: #8c8c8c;
+
+  --colour-text: #0a0a0a;
+  --colour-text-secondary: #f5f5f5;
+
+  --colour-border: #d9d9d9;
+
+  --colour-background: #f5f5f5;
+  --colour-surface: #ffffff;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  color: var(--colour-text);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.list {
+  width: 320px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: color-mix(in srgb, var(--colour-surface) 98%, black);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.08),
+    0 16px 32px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.list__header {
+  padding: 0.5rem 0;
+  background-color: var(--colour-primary);
+  color: var(--colour-text-secondary);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.list__items {
+  flex: 1 1 100%;
+  padding: 1rem;
+}
+
+.item__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  padding: 0 0.5rem 0.2rem 0.5rem;
+  border-bottom: 1px solid var(--colour-border);
+}
+
+.item {
+  font-size: 1.2rem;
+}
+
+.item-delete-btn {
+  font-size: 1.2rem;
+}
+.item-delete-btn:hover {
+  color: var(--colour-accent);
+  transform: scale(1.2) rotate(15deg);
+  transition: all 200ms ease-in;
+}
+
+#list__form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  background-color: var(--colour-surface);
+}
+
+.form__input {
+  padding: 0.5rem;
+  border: 1px solid var(--colour-border);
+  border-radius: 0.8rem;
+  background-color: color-mix(in srgb, var(--colour-surface) 97%, black 3%);
+  font-size: 1.2rem;
+}
+.form__input::placeholder {
+  font-size: 1rem;
+}
+
+.form-add-btn {
+  width: 48px;
+  height: 48px;
+  margin: 0.5rem auto 0;
+  border-radius: 50%;
+  background-color: var(--colour-primary);
+  color: var(--colour-text-secondary);
+  font-size: 1.5rem;
+}
+.form-add-btn:hover {
+  background-color: var(--colour-accent);
+  transform: scale(1.1);
+  transition: all 300ms ease-in-out;
+}
