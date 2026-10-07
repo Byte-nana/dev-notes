@@ -6,6 +6,42 @@
     <title>Shopping List</title>
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/a5f079a000.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <section class="list">
+      <header class="list__header">Shopping List</header>
+      <ul class="list__items">
+        <li class="item__row">
+          <span class="item">Milk</span>
+          <button
+            type="button"
+            class="item-delete-btn"
+            data-action="delete-item"
+          >
+            <i class="fa-solid fa-eraser"></i>
+          </button>
+        </li>
+        <li class="item__row">
+          <span class="item">Eggs</span>
+          <button
+            type="button"
+            class="item-delete-btn"
+            data-action="delete-item"
+          >
+            <i class="fa-solid fa-eraser"></i>
+          </button>
+        </li>
+      </ul>
+      <form action="#" id="list__form">
+        <input type="text" class="form__input" placeholder="Add an item..." />
+        <button type="submit" class="form-add-btn" data-action="add-item">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+      </form>
+    </section>
+  </body>
 </html>
