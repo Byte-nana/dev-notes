@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Rabbit!</title>
+    <style>
+      body {
+        background-color: black;
+        /* 버튼 태그만 중심으로 왔다! 
+        이미지는 왜? 개발툴 확인! => 버튼만 inline tag이기 때문에(이미지 태그는 내가 block으로 바꿈)*/
+        text-align: center;
+      }
+      img {
+        display: block;
+        /* 이미지 중심에 오게 하기! */
+        margin: auto;
+      }
+      button {
+        outline: none;
+        background-color: tomato;
+        color: white;
+        font-size: 32px;
+        margin: 16px 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn-find">Find a rabbit🐇</button>
+    <img src="img/carrot.png" alt="carrot" />
+    <img src="img/carrot.png" alt="carrot" />
+    <img src="img/carrot.png" alt="carrot" />
+    <img src="img/carrot.png" alt="carrot" />
+    <img src="img/carrot.png" alt="carrot" />
+    <img src="img/carrot.png" alt="carrot" />
+    <img src="img/carrot.png" alt="carrot" />
+    <img id="rabbit" src="img/rabbit.png" alt="rabbit" />
+    <img src="img/carrot.png" alt="carrot" />
+    <img src="img/carrot.png" alt="carrot" />
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+      });
+
+      const btnFind = document.querySelector('.btn-find');
+      const rabbit = document.querySelector('#rabbit');
+
+      btnFind.addEventListener('click', () => {
+        rabbit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    </script>
+  </body>
+</html>
