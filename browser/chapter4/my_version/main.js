@@ -22,6 +22,9 @@ function addItem(text) {
   const button = document.createElement('button');
   button.setAttribute('class', 'delete-btn');
   button.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+  button.addEventListener('click', () => {
+    items.removeChild(li);
+  });
 
   li.append(span);
   li.append(button);
@@ -29,7 +32,6 @@ function addItem(text) {
   items.append(li);
   li.scrollIntoView();
 }
-function removeItem() {}
 
 // Event handling
 form.addEventListener('submit', (e) => {
@@ -47,5 +49,3 @@ form.addEventListener('submit', (e) => {
   usertext.value = '';
   usertext.focus();
 });
-// 2. remove Items
-// get delete-btn which created dynamically
