@@ -19,5 +19,35 @@
       rel="stylesheet"
     />
   </head>
-  <body></body>
+  <body>
+    <section class="shopping-list">
+      <header class="header">Shopping List</header>
+      <ul class="items">
+        <li class="item-row" data-item="delete-item">
+          <span class="text">Milk</span>
+          <button class="delete-btn">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </li>
+        <li class="item-row">
+          <span class="text">Eggs</span>
+          <button class="delete-btn">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </li>
+      </ul>
+      <form id="form" data-form="add-item">
+        <input
+          class="usertext"
+          type="text"
+          name="usertext"
+          placeholder="Add an item..."
+          maxlength="40"
+        />
+        <button class="add-btn" type="submit">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </form>
+    </section>
+  </body>
 </html>
