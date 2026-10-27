@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  border: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
