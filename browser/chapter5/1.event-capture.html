@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+      }
+
+      .middle {
+        width: 50%;
+        height: 50%;
+        margin: auto;
+        background-color: thistle;
+        transform: translateY(50%);
+      }
+
+      button {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="middle">
+        <button>Click Me</button>
+      </div>
+    </div>
+    <script>
+      const outer = document.querySelector('.outer');
+      const middle = document.querySelector('.middle');
+      const button = document.querySelector('button');
+
+      outer.addEventListener('click', (event) => {
+        // if (event.target !== event.currentTarget) {
+        //   return;
+        // }
+        console.log(`outer: ${event.currentTarget}, ${event.target}`);
+      });
+      middle.addEventListener('click', (event) => {
+        // if (event.target !== event.currentTarget) {
+        //   return;
+        // }
+        console.log(`middle ${event.currentTarget}, ${event.target}`);
+      });
+      button.addEventListener('click', (event) => {
+        console.log(`button1 ${event.currentTarget}, ${event.target}`);
+        // event bubbling이 일어나게 하지 않는다.
+        // 여기서는 버튼에 등록된 이벤트만 발생시키고 버블링 중지.
+        // event.stopPropagation();
+      });
+      button.addEventListener('click', (event) => {
+        console.log(`button2 ${event.currentTarget}, ${event.target}`);
+        // 함께 등록된 리스너도 방지하고 싶은 경우 사용한다. (나만 핸들링하고 다른 이벤트는 다 무시해!)
+        // 여기서는 button1, button2 이벤트만 발생시키고 button3은 안일어난다.
+        // event.stopImmediatePropagation();
+      });
+      button.addEventListener('click', (event) => {
+        console.log(`button3 ${event.currentTarget}, ${event.target}`);
+      });
+    </script>
+  </body>
+</html>
+
+<!-- 
+이벤트를 막기 위해서  evnet.stopPropagation(), event.stopImmediatePropagation()를 사용하는데, 
+이는 가능하면 사용하지 않는 것이 좋다. 
+
+대신 if조건문 사용해서 버블링을 막을 수 있다. 
+evnet.target / event.currentTagart이라는 의미있는 정보가 있기에 이를 이용해서 이벤트 버블링을 처리하자! -->
