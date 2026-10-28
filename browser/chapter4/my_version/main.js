@@ -1,12 +1,3 @@
-/**
- * Requirement
- * 1. Add items
- * - Enter input -> Hit enter btn or plus btn -> show on UI
- * 2. remove items
- * - click bin icon -> remove <li>
- */
-
-// DOM elements
 const form = document.querySelector('form[data-form="add-item"]');
 const usertext = document.querySelector('.usertext');
 const items = document.querySelector('ul[data-role="item-list"]');
@@ -53,7 +44,6 @@ function onDelete(target) {
   deletedItem.remove();
 }
 
-// Event handling
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
