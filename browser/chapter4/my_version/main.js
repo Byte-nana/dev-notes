@@ -12,8 +12,11 @@ const usertext = document.querySelector('.usertext');
 const items = document.querySelector('ul[data-role="item-list"]');
 
 function createItem(text) {
+  let uuid = self.crypto.randomUUID();
+
   const li = document.createElement('li');
   li.setAttribute('class', 'item-row');
+  li.setAttribute('data-id', `${uuid}`);
 
   const span = document.createElement('span');
   span.setAttribute('class', 'text');
@@ -21,10 +24,10 @@ function createItem(text) {
 
   const button = document.createElement('button');
   button.setAttribute('class', 'delete-btn');
-  button.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-  button.addEventListener('click', () => {
-    items.removeChild(li);
-  });
+  button.innerHTML = `<i class="fa-solid fa-trash-can" data-id="${uuid}"></i>`;
+  // button.addEventListener('click', () => {
+  //   items.removeChild(li);
+  // });
 
   li.append(span);
   li.append(button);
@@ -48,9 +51,22 @@ function onAdd() {
   usertext.focus();
 }
 
+function onDelete(target) {
+  if (!target.matches('i[data-id]')) return;
+
+  const id = target.dataset.id;
+  const deletedItem = document.querySelector(`.item-row[data-id="${id}"]`);
+
+  deletedItem.remove();
+}
+
 // Event handling
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   onAdd();
+});
+
+items.addEventListener('click', (e) => {
+  onDelete(e.target);
 });
