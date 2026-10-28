@@ -7,9 +7,9 @@
  */
 
 // DOM elements
-const form = document.querySelector('#form');
+const form = document.querySelector('form[data-form="add-item"]');
 const usertext = document.querySelector('.usertext');
-const items = document.querySelector('.items');
+const items = document.querySelector('ul[data-role="item-list"]');
 
 function createItem(text) {
   const li = document.createElement('li');
