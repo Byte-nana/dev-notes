@@ -11,7 +11,14 @@ const form = document.querySelector('#form');
 const usertext = document.querySelector('.usertext');
 const items = document.querySelector('.items');
 
-function addItem(text) {
+function onAdd() {
+  const text = usertext.value;
+  if (text.trim().length === 0) {
+    usertext.value = '';
+    usertext.focus();
+    return;
+  }
+
   const li = document.createElement('li');
   li.setAttribute('class', 'item-row');
 
@@ -30,22 +37,15 @@ function addItem(text) {
   li.append(button);
 
   items.append(li);
+
   li.scrollIntoView();
+  usertext.value = '';
+  usertext.focus();
 }
 
 // Event handling
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const text = usertext.value;
-  if (text.trim().length === 0) {
-    usertext.value = '';
-    usertext.focus();
-    return;
-  }
-
-  addItem(text);
-
-  usertext.value = '';
-  usertext.focus();
+  onAdd();
 });
