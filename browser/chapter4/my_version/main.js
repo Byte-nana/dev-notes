@@ -18,19 +18,12 @@ function createItem(text) {
   li.setAttribute('class', 'item-row');
   li.setAttribute('data-id', `${uuid}`);
 
-  const span = document.createElement('span');
-  span.setAttribute('class', 'text');
-  span.textContent = `${text}`;
-
-  const button = document.createElement('button');
-  button.setAttribute('class', 'delete-btn');
-  button.innerHTML = `<i class="fa-solid fa-trash-can" data-id="${uuid}"></i>`;
-  // button.addEventListener('click', () => {
-  //   items.removeChild(li);
-  // });
-
-  li.append(span);
-  li.append(button);
+  li.innerHTML = `
+    <span class="text">${text}</span>
+    <button class="delete-btn">
+      <i class="fa-solid fa-trash-can" data-id="${uuid}"></i>
+    </button>
+  `;
 
   return li;
 }
