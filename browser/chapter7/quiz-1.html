@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box,
+      .circle {
+        width: 150px;
+        height: 150px;
+        margin-top: 1rem;
+        background-color: brown;
+      }
+      .circle {
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Let's dance💃</button>
+    <div class="box"></div>
+    <div class="circle"></div>
+    <script>
+      const button = document.querySelector('button');
+      const box = document.querySelector('.box');
+      const circle = document.querySelector('.circle');
+      // 이 코드에서 나타나는 css 효과는 무엇일까?
+      // 박스는 x축으로 500px 떨어지고, 색은 노란색으로 바뀐다.
+      // 왜냐하면, 클릭 이벤트 발생시 task queue로 코드블럭이 넘어가고 event loop가 이를 콜 스택으로 가져와서 실행하게 되면, 이미 이 코드는 전부 실행된 상태에서 rendering 단계로 넘어가기 때문이다. 그래서 마지막에 적용되는 효과만이 실제 브라우저에 표시되게 된다.
+      button.addEventListener('click', () => {
+        box.style.transition = 'transform 1s ease-in';
+        box.style.transform = 'translateX(800px)';
+        box.style.transform = 'translateX(500px)';
+        box.style.backgroundColor = 'blue';
+        box.style.backgroundColor = 'orange';
+        box.style.backgroundColor = 'yellow';
+
+        circle.animate(
+          [
+            { transform: 'translateX(800px)' },
+            { transform: 'translateX(500px)' },
+          ],
+          2000,
+        );
+      });
+    </script>
+  </body>
+</html>

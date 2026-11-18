@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click to add</button>
+    <script>
+      const button = document.querySelector('button');
+      // 1, 2번째 코드는 서로 다를까? 어떤 순서로 작성해야지 좋을까?
+      // 작성 순서는 상관이 없다. 왜냐하면 버튼에 클릭 이벤트가 발생하면, 등록된 코드 블럭이 task queue로 던져지고, call stack이 비어있다면 event loop가 이를 call stack으로 옮긴다.
+      // 그 후, 자바스크립트 엔진이 이 코드를 전부 실행한 후에 call stack에서 빠져나와서 render tree를 만들기 때문이다.
+      //1번째
+      button.addEventListener('click', () => {
+        const element = document.createElement('h1');
+        document.body.append(element);
+        element.style.color = 'red';
+        element.innerText = 'hello';
+      });
+      //2번째
+      button.addEventListener('click', () => {
+        const element = document.createElement('h1');
+        element.style.color = 'red';
+        element.innerText = 'hello';
+        document.body.append(element);
+      });
+    </script>
+  </body>
+</html>

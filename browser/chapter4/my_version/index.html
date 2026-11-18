@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping list</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/a5f079a000.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="shopping-list">
+      <header class="header">Shopping List</header>
+      <ul class="items" data-role="item-list"></ul>
+      <form id="form" data-form="add-item">
+        <input
+          class="usertext"
+          type="text"
+          name="usertext"
+          placeholder="Add an item..."
+          maxlength="40"
+        />
+        <button class="add-btn" type="submit">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </form>
+    </section>
+  </body>
+</html>

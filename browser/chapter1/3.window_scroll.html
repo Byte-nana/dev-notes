@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Scroll</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      div {
+        width: 150px;
+        height: 150px;
+        background-color: blanchedalmond;
+        margin-bottom: 4px;
+        border-radius: 4px;
+      }
+      .special {
+        background-color: lightsalmon;
+      }
+      .buttons {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <aside class="buttons">
+      <button class="scroll-by">Scroll by 100px(y)</button>
+      <button class="scroll-to">Scroll to 100px(y)</button>
+      <button class="scroll-into">Scroll into special</button>
+    </aside>
+    <script>
+      history.scrollRestoration = 'manual';
+
+      const special = document.querySelector('.special');
+      //   const buttons = document.querySelector('.buttons');
+      const btnScrollBy = document.querySelector('.scroll-by');
+      const btnScrollTo = document.querySelector('.scroll-to');
+      const btnScrollInto = document.querySelector('.scroll-into');
+
+      window.addEventListener('load', () => {
+        if (history.scrollRestoration === 'manual') {
+          window.scrollTo(0, 0);
+        }
+      });
+
+      btnScrollBy.addEventListener('click', () => {
+        window.scrollBy(0, 100);
+      });
+
+      btnScrollTo.addEventListener('click', () => {
+        window.scrollTo({ top: 100, left: 0, behavior: 'smooth' });
+      });
+
+      btnScrollInto.addEventListener('click', () => {
+        special.scrollIntoView();
+      });
+
+      //   buttons.addEventListener('click', (e) => {
+      //     switch (e.target.className) {
+      //       case 'scroll-by':
+      //         window.scrollBy(0, 100);
+      //         break;
+      //       case 'scroll-to':
+      //         window.scrollTo(0, 100);
+      //         break;
+      //       case 'scroll-into':
+      //         special.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      //         break;
+      //       default:
+      //         throw new Error(`Unknow button: ${e.target.className}`);
+      //     }
+      //   });
+    </script>
+  </body>
+</html>
