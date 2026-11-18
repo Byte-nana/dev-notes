@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        font-size: 60px;
+      }
+      button:hover {
+        background-color: antiquewhite;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button>RequestAnimationFrame</button>
+    <script>
+      const button = document.querySelector('button');
+
+      // redering 하는 경우에, requestAnimationFrame의 queue를 전부 수행한 후에 render tree를 생성하고 순서에 따라서 브라우저를 표현하게 된다.
+      button.addEventListener('click', () => {
+        // requestAnimationFrame
+        // 브라우저 갱신 시점에 맞춰서 js 함수를 실행하도록 요청한다.
+        // 보통 브라우저의 화면 갱신에 맞춰 애니메이션을 실행할 때 많이 사용된다.
+        requestAnimationFrame(() => {
+          document.body.style.backgroundColor = 'beige';
+        });
+        requestAnimationFrame(() => {
+          document.body.style.backgroundColor = 'orange';
+        });
+        requestAnimationFrame(() => {
+          document.body.style.backgroundColor = 'red';
+        });
+        // 지금 당장 말고 event loop가 한바퀴 돈 후에 실행하고 싶을 때 아래와 같은 코드를 작성한다.
+        setTimeout(() => {
+          //
+        }, 0);
+      });
+    </script>
+  </body>
+</html>

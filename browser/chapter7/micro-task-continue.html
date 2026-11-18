@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        font-size: 60px;
+      }
+      button:hover {
+        background-color: antiquewhite;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Continue with promise</button>
+    <script>
+      const button = document.querySelector('button');
+      function handleClick() {
+        console.log('handleClick');
+        Promise.resolve(0) //
+          .then(() => {
+            console.log('then');
+            handleClick();
+          });
+      }
+      // micro task queue는 queue가 빌 때까지 event loop가 그곳에 머문다.
+      // 그래서 call stack에서 일을 처리하는 동안 queue에 새로운 프로미스가 들어오게 되면 이 작업을 다 할 때까지 event loop는 계속 머물게 되는 것이다.
+      button.addEventListener('click', () => {
+        handleClick();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        font-size: 60px;
+      }
+      button:hover {
+        background-color: antiquewhite;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button>While(true)</button>
+    <script>
+      const button = document.querySelector('button');
+      // 등록한 콜백이 콜스택으로 가서 계속 돌고 있기 때문에 결국 브라우저는 죽는다.
+      // 콜스택에 등록되는 함수 등은 최대한 간단하게 작성하는 것이 중요하다.
+      button.addEventListener('click', () => {
+        while (true) {
+          // repeat 🙂‍↕️
+        }
+      });
+    </script>
+  </body>
+</html>

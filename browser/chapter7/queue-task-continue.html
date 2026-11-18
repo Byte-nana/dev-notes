@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        font-size: 60px;
+      }
+      button:hover {
+        background-color: antiquewhite;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Continue with setTimeout</button>
+    <script>
+      const button = document.querySelector('button');
+      function handleClick() {
+        console.log('handleClick');
+        setTimeout(() => {
+          console.log('setTimeout');
+          handleClick();
+        }, 0);
+      }
+      // 클릭 이벤트가 발생하면 handleClick이 task queue로 보내지고 call stack으로 와서 코드가 실행된다.
+      // log를 출력하고 setTimeout 코드 블럭은 지정된 시간이 지난 후에 event loop에 의해서 queue로 던져진다. 그리고 다시 handleClick을 호출하면서 무한정 같은 일이 반복된다.
+      // 그러나 event loop가 queue와 stack을 돌면서 지정된 시간에 rendering도 하고 다른 일도 처리하기에 브라우저가 죽지는 않고, 브라우저 화면 업데이트도 일어난다.
+      // 왜냐하면 event loop가 queue에서 하나 가져오고 또 빙글빙글 돌기 때문이다. 그래서 다른 작업도 같이 처리할 수 있다.
+      button.addEventListener('click', () => handleClick());
+    </script>
+  </body>
+</html>
