@@ -66,6 +66,9 @@
   border-radius: 1rem;
 }
 
+.counter__total {
+  font-size: 2rem;
+}
 .counter__number {
   font-size: 6rem;
   font-weight: bold;
@@ -86,4 +89,13 @@
   background-color: transparent;
   border: 2px solid black;
   color: black;
+}
+
+.counter__banner {
+  width: 400px;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
 }
