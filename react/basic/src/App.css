@@ -52,3 +52,38 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+
+/* counter */
+.counter {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  border: 2px solid black;
+  border-radius: 1rem;
+}
+
+.counter__number {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.counter__button {
+  padding: 0.2rem 1rem;
+  background-color: black;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+.counter__button:hover {
+  background-color: transparent;
+  border: 2px solid black;
+  color: black;
+}
