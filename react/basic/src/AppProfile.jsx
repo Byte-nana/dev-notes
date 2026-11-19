@@ -1,9 +1,14 @@
 import Profile from './components/Profile';
 import './App.css';
+import Avatar from './components/Avatar';
 
 export default function AppProfile() {
   return (
     <>
+      <Avatar
+        image='https://plus.unsplash.com/premium_photo-1731506659993-678476bb99ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D'
+        isNew={true}
+      />
       <Profile
         image='https://plus.unsplash.com/premium_photo-1732757787045-d903f2e88b08?q=80&w=1354&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D'
         name='Bread Toast'

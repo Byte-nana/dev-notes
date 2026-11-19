@@ -7,8 +7,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+#root {
+  text-align: center;
+}
 .profile {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,10 +35,16 @@
   object-fit: cover;
 }
 
+.avatar {
+  position: relative;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
 .tag {
   position: absolute;
-  top: 12%;
-  right: 10%;
+  top: 3%;
+  left: 76%;
   padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;
   background-color: aqua;
