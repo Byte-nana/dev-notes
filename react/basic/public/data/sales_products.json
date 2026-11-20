@@ -1,0 +1,22 @@
+[
+  {
+    "id": "salejean12344",
+    "name": "Jean",
+    "price": "￡10"
+  },
+  {
+    "id": "saleshirt1234",
+    "name": "T-shirt",
+    "price": "￡40"
+  },
+  {
+    "id": "saleboots144",
+    "name": "Boots",
+    "price": "￡10"
+  },
+  {
+    "id": "salewatch144",
+    "name": "Watch",
+    "price": "￡1000"
+  }
+]
