@@ -1,0 +1,6 @@
+[
+  { "id": "123", "name": "Jean", "price": "£20" },
+  { "id": "1234", "name": "T-shirt", "price": "£10" },
+  { "id": "1235", "name": "Boots", "price": "£50" },
+  { "id": "1236", "name": "Watch", "price": "£120" }
+]
