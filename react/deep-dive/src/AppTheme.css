@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header,
+.footer {
+  background-color: #00003a;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.main {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}

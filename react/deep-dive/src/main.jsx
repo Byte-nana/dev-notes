@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import AppCard from './AppCard.jsx';
+import AppTheme from './AppTheme.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AppCard />
+    <AppTheme />
   </StrictMode>,
 );
