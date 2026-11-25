@@ -15,7 +15,7 @@ export default function TodoForm({ onAdd }) {
     }
 
     const itemId = crypto.randomUUID();
-    onAdd({ id: itemId, text });
+    onAdd({ id: itemId, text, state: 'active' });
     setText('');
     inputRef.current.focus();
   };
