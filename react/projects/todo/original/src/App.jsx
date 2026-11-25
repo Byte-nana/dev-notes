@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm';
+import TodoItem from './components/TodoItem';
 
 function App() {
   const [items, setItems] = useState(initialItems);
@@ -10,9 +11,9 @@ function App() {
   return (
     <>
       <ul>
-        {items.map((item, index) => {
-          return <li key={index}>{item}</li>;
-        })}
+        {items.map((item) => (
+          <TodoItem key={item.id} item={item.text} />
+        ))}
       </ul>
       <TodoForm onAdd={handleAdd} />
     </>
@@ -21,4 +22,7 @@ function App() {
 
 export default App;
 
-const initialItems = ['milk', 'eggs'];
+const initialItems = [
+  { id: 1234, text: 'milk' },
+  { id: 12345, text: 'eggs' },
+];
