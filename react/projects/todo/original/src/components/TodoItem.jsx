@@ -1,16 +1,21 @@
 import { TbEditFilled, TbTrashFilled } from 'react-icons/tb';
+import Button from '../ui/Button';
 
-export default function TodoItem({ item }) {
+export default function TodoItem({ item, onDelete }) {
   return (
     <li>
       <input type='checkbox' name='checkbox' id='checkbox' />
-      <span>{item}</span>
-      <button>
+      <span>{item.text}</span>
+      <Button>
         <TbEditFilled />
-      </button>
-      <button>
+      </Button>
+      <Button
+        onClick={() => {
+          onDelete(item);
+        }}
+      >
         <TbTrashFilled />
-      </button>
+      </Button>
     </li>
   );
 }

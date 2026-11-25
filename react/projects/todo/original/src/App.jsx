@@ -8,11 +8,14 @@ function App() {
 
   const handleAdd = (newItem) => setItems((item) => [...item, newItem]);
 
+  const handleDelete = (deleteItem) =>
+    setItems(items.filter((item) => item.id !== deleteItem.id));
+
   return (
     <>
       <ul>
         {items.map((item) => (
-          <TodoItem key={item.id} item={item.text} />
+          <TodoItem key={item.id} item={item} onDelete={handleDelete} />
         ))}
       </ul>
       <TodoForm onAdd={handleAdd} />
