@@ -3,9 +3,16 @@ import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoItem from './components/TodoItem';
 import { ItemState } from './constants/itemState';
+import TodoHeader from './components/TodoHeader';
 
 function App() {
   const [items, setItems] = useState(initialItems);
+  const [filter, setFilter] = useState('all');
+
+  const filteredItems =
+    filter === 'all' ? items : items.filter((item) => item.state === filter);
+
+  const handleFilter = (state) => setFilter(state);
 
   const handleAdd = (newItem) => setItems((item) => [...item, newItem]);
 
@@ -27,8 +34,9 @@ function App() {
 
   return (
     <>
+      <TodoHeader onFilter={handleFilter} />
       <ul>
-        {items.map((item) => (
+        {filteredItems.map((item) => (
           <TodoItem
             key={item.id}
             item={item}
